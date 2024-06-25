@@ -1,0 +1,7 @@
+- name: do stuff
+  hosts: hosts
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Echo test
+      shell: echo "Hello World"
