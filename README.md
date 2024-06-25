@@ -35,13 +35,13 @@ ANSIBLE_CONFIG=/app/ansible/ansible.cfg
 
 ## Usage
 
-Navigate to the root of the git repository and run the following commands:
+Navigate to the root of the git repository and run the following command:
 ```sh
 sh run.sh 
 ```
 
 The following happens:
-1) the first command builds the docker image, passing the private key value as an argument and tagging it as *sshaccess*
+1) the first command builds the docker image, passing the private key value as an argument and tagging it as *ansibletest*
 2) the docker image sets up the SSH access by copying the value of the `SSH_PRIVATE_KEY` argument to the standard location for SSH keys
 3) the second command uses docker-compose to create and run the container. The container runs the `master.yml` ansible playbook, which only echoes some text.
 
