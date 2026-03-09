@@ -12,11 +12,10 @@ Note: ansible needs SSH access to the target machine. You can find out how to co
 
 A Linux or MacOS machine for local development. If you are running Windows, you first need to set up the *Windows Subsystem for Linux (WSL)* environment.
 
-You need `docker cli` and `docker-compose` on your machine for testing purposes, and/or on the machines that run your pipeline.
-You can check both of these by running the following commands:
+You need `docker cli` on your machine for testing purposes, and/or on the machines that run your pipeline.
+You can these by running the following command:
 ```sh
 docker --version
-docker-compose --version
 ```
 
 Make sure that you already have a docker container with SSH access.
@@ -28,7 +27,7 @@ When building the docker image, install ansible; it is a good practice to instal
 RUN apk --no-cache add ansible=7.5.0-r0
 ```
 
-In the docker-compose file you must provide an environment variable with the location of the ansible config file; for example:
+In the docker compose file you must provide an environment variable with the location of the ansible config file; for example:
 ```sh
 ANSIBLE_CONFIG=/app/ansible/ansible.cfg
 ```
@@ -43,6 +42,6 @@ sh run.sh
 The following happens:
 1) the first command builds the docker image, passing the private key value as an argument and tagging it as *ansibletest*
 2) the docker image sets up the SSH access by copying the value of the `SSH_PRIVATE_KEY` argument to the standard location for SSH keys
-3) the second command uses docker-compose to create and run the container. The container runs the `master.yml` ansible playbook, which only echoes some text.
+3) the second command uses docker compose to create and run the container. The container runs the `master.yml` ansible playbook, which only echoes some text.
 
 Note: if you want to test this, consider changing the target machine IP with your own in this file: `ansible/production.ini`
