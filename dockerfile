@@ -17,5 +17,3 @@ RUN apk --no-cache add ansible=7.5.0-r0
 COPY ./scripts /app
 # Copy ansible files to the expected location
 COPY ./ansible /app/ansible
-
-CMD ["sh"]
